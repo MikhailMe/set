@@ -73,7 +73,7 @@ MySet<T> &MySet<T>::operator =(const MySet &b)
 	SET<T> *end = 0, *newel;
 	SET<T> *br = start;
 	SET<T> *br2 = b.start;
-	if (flag)		// размерности равны, просто копируем данные.
+	if (flag)		// Г°Г Г§Г¬ГҐГ°Г­Г®Г±ГІГЁ Г°Г ГўГ­Г», ГЇГ°Г®Г±ГІГ® ГЄГ®ГЇГЁГ°ГіГҐГ¬ Г¤Г Г­Г­Г»ГҐ.
 	{
 		while (br)
 		{
@@ -83,7 +83,7 @@ MySet<T> &MySet<T>::operator =(const MySet &b)
 		}
 		return *this;
 	}
-	while (br2)		// размерности не равны
+	while (br2)		// Г°Г Г§Г¬ГҐГ°Г­Г®Г±ГІГЁ Г­ГҐ Г°Г ГўГ­Г»
 	{
 		newel = new SET<T>;
 		newel->next = 0;
@@ -240,7 +240,7 @@ void MySet<T>::remove(const T& elem)
 template <class T>
 bool MySet<T>::contains(const T& elem) const
 {
-	SET<T>  *con = start;
+	/*SET<T>  *con = start;
 	int pLEFT = 0;
 	int pRIGHT = size();
 	int pMIDDLE;
@@ -252,6 +252,14 @@ bool MySet<T>::contains(const T& elem) const
 		else if (elem > get_elem(pMIDDLE))
 			pLEFT = pMIDDLE + 1;
 		else return true;
+	}
+	return false;*/
+	SET<T> *con = start;
+	while (con)
+	{
+		if (elem == con->data)
+		return true;
+		con=con->next;
 	}
 	return false;
 }
