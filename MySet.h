@@ -27,9 +27,7 @@ public:
 	void clear();
 	inline void del_begin();
 	bool search(T n);
-	T get_elem(int i) const;
 	void print();
-
 	
 	void add(const T& elem);
 	void remove(const T& elem);
@@ -168,23 +166,6 @@ bool MySet<T>::search(T n)
 }
 
 template <class T>
-T MySet<T>::get_elem(int i) const
-{
-	if (i <= size())
-	{
-		int k = 0;
-		SET<T> *get = start;
-		while (get)
-		if (k == i)
-			return get->data;
-		else {
-			get = get->next;
-			++k;
-		}
-	}
-}
-
-template <class T>
 void MySet<T>::add(const T& elem)
 {
 	if (!search(elem))
@@ -240,20 +221,6 @@ void MySet<T>::remove(const T& elem)
 template <class T>
 bool MySet<T>::contains(const T& elem) const
 {
-	/*SET<T>  *con = start;
-	int pLEFT = 0;
-	int pRIGHT = size();
-	int pMIDDLE;
-	while (left <= right)
-	{
-		pMIDDLE = pLEFT + (pRIGHT - pLEFT) / 2;
-		if (elem < get_elem(pMIDDLE))
-			pRIGHT = pMIDDLE - 1;
-		else if (elem > get_elem(pMIDDLE))
-			pLEFT = pMIDDLE + 1;
-		else return true;
-	}
-	return false;*/
 	SET<T> *con = start;
 	while (con)
 	{
